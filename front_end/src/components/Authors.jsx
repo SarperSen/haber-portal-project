@@ -7,7 +7,7 @@ export default function Authors({ className = "" }) {
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5050/api/authors") // Backend API adresine göre güncelle
+    fetch("https://haber-portal-project.onrender.com/api/authors") // Backend API adresine göre güncelle
       .then((res) => {
         if (!res.ok) throw new Error("Yazar verisi alınamadı");
         return res.json();
