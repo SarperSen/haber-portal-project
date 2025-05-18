@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addVisitedNews } from "../redux/visitedNewsSlice";
 
-const API_BASE_URL = "http://localhost:5050/api";
+const API_BASE_URL = "https://haber-portal-project.onrender.com/api";
 
 export default function NewsList({ className = "" }) {
   const [news, setNews] = useState([]);
