@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export default function Slider() {
   const [news, setNews] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -7,7 +9,7 @@ export default function Slider() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://haber-portal-project.onrender.com/api/slider-news")   // Backend API adresini buraya yaz
+   fetch(`${API_BASE_URL}/api/slider-news`)   // Backend API adresini buraya yaz
       .then((res) => {
         if (!res.ok) throw new Error("Veri alınamadı");
         return res.json();
