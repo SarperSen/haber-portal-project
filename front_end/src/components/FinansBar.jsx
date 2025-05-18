@@ -8,7 +8,7 @@ export default function FinansBar() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/finance`)
+    fetch(`${API_BASE_URL}/api/finance`)
       .then((res) => {
         if (!res.ok) throw new Error("Veri alınamadı");
         return res.json();
