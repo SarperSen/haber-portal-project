@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addVisitedNews } from "../redux/visitedNewsSlice";
 
-const API_BASE_URL = "https://haber-portal-project.onrender.com/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export default function NewsList({ className = "" }) {
   const [news, setNews] = useState([]);
@@ -15,7 +15,7 @@ export default function NewsList({ className = "" }) {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/news`);
+        const res = await fetch(`${API_BASE_URL}/api/news`);
         if (!res.ok) throw new Error("Haber verisi alınamadı");
         const data = await res.json();
         if (!Array.isArray(data)) throw new Error("Beklenmeyen veri formatı");
