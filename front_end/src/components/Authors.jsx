@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export default function Authors({ className = "" }) {
   const [writers, setWriters] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -7,7 +9,7 @@ export default function Authors({ className = "" }) {
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
-    fetch("https://haber-portal-project.onrender.com/api/authors") // Backend API adresine göre güncelle
+    fetch(`${API_BASE_URL}/api/authors`) 
       .then((res) => {
         if (!res.ok) throw new Error("Yazar verisi alınamadı");
         return res.json();
