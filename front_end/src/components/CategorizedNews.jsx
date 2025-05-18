@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addVisitedNews } from "../redux/visitedNewsSlice";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export default function CategorizedNews({ className = "" }) {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -13,7 +15,7 @@ export default function CategorizedNews({ className = "" }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch("https://haber-portal-project.onrender.com/api/categories")  // Backend endpoint'i buraya göre değiştir
+    fetch(`${API_BASE_URL}/api/categories`)  // Backend endpoint'i buraya göre değiştir
       .then((res) => {
         if (!res.ok) throw new Error("Veri alınamadı");
         return res.json();
