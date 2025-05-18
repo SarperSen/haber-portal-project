@@ -7,7 +7,7 @@ export default function Slider() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5050/api/slider-news")   // Backend API adresini buraya yaz
+    fetch("https://haber-portal-project.onrender.com/api/slider-news")   // Backend API adresini buraya yaz
       .then((res) => {
         if (!res.ok) throw new Error("Veri alınamadı");
         return res.json();
